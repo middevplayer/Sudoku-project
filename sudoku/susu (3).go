@@ -123,26 +123,6 @@ func (g *Grid) SudokugenerateBot(initalNumbersCount int) bool {
 	return true
 }
 
-func (g *Grid) IsSolvable(initalNumbersCount int) bool { // автобот работающий по перебору. Ставит в пустую клетку число от 1 до 9 и потом решает основываясь на этой цифре.
-	//  Если случится так, что доска не подходит под правила, то ставит другую цифру и так далее
-	counter := 0
-
-	for i := 0; i < rows; i++ {
-		for j := 0; j < columns; j++ {
-			d := g[i][j].digit
-			if d != empty {
-				if !g.InRow(i, d) && !g.InColumn(j, d) && !g.InRegion(i, j, d) {
-					counter++
-				}
-				fmt.Println("good")
-
-			}
-		}
-	}
-
-	return counter == initalNumbersCount
-}
-
 func (g *Grid) SudokuBot() bool { // автобот работающий по перебору. Ставит в пустую клетку число от 1 до 9 и потом решает основываясь на этой цифре.
 	//  Если случится так, что доска не подходит под правила, то ставит другую цифру и так далее
 	for i := 0; i < rows; i++ {
